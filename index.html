@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nazlikralicem.com | Yıldızlar Altında</title>
+    <title>Yıldızlar Altında</title>
     <style>
         /* Genel Ayarlar */
         * {
@@ -29,11 +29,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Wikimedia üzerinden güvenli, yüksek çözünürlüklü The Kiss görseli */
             background-image: url('https://wikimedia.org');
             background-size: cover;
             background-position: center;
-            opacity: 0.15; /* Tablonun loş ve asil durması için opaklık */
+            opacity: 0.15;
             z-index: -2;
             pointer-events: none;
         }
@@ -56,7 +55,7 @@
             pointer-events: none;
         }
 
-        /* Üst Menü / Navbar (Profesyonel Dokunuş) */
+        /* Üst Menü / Navbar */
         nav {
             width: 100%;
             padding: 20px 40px;
@@ -73,10 +72,9 @@
 
         nav .logo {
             font-size: 1.4rem;
-            color: #d4af37; /* Altın Sarısı */
+            color: #d4af37;
             letter-spacing: 2px;
             font-weight: bold;
-            text-transform: lowercase;
         }
 
         nav .date {
@@ -85,9 +83,9 @@
             font-style: italic;
         }
 
-        /* Giriş Alanı (Hero Section) */
+        /* Giriş Alanı */
         header {
-            height: 70vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -122,7 +120,7 @@
 
         .memory-card {
             display: flex;
-            background: rgba(43, 10, 15, 0.75); /* Kadife Bordo Kutular */
+            background: rgba(43, 10, 15, 0.75);
             border: 1px solid rgba(212, 175, 55, 0.15);
             border-radius: 12px;
             margin-bottom: 60px;
@@ -137,7 +135,6 @@
             border: 1px solid rgba(212, 175, 55, 0.4);
         }
 
-        /* Fotoğrafların yerini bir sağ bir sol yapmak için */
         .memory-card:nth-child(even) {
             flex-direction: row-reverse;
         }
@@ -190,7 +187,6 @@
             z-index: 1;
         }
 
-        /* Süs Parıltı İkonu */
         .sparkle {
             text-align: center;
             color: #d4af37;
@@ -199,7 +195,6 @@
             opacity: 0.7;
         }
 
-        /* Alt Bilgi */
         footer {
             text-align: center;
             padding: 40px;
@@ -210,7 +205,6 @@
             letter-spacing: 1px;
         }
 
-        /* Mobil Uyumluluk Ekran Ayarları */
         @media (max-width: 768px) {
             nav { padding: 15px 20px; }
             header h1 { font-size: 2.3rem; }
@@ -224,61 +218,57 @@
 </head>
 <body>
 
-    <!-- Profesyonel Menü Barı -->
     <nav>
-        <div class="logo">nazlikralicem.com</div>
-        <div class="date">Sonsuzluğa Atılan İmza</div>
+        <div class="logo">Bizim Hikayemiz</div>
+        <div class="date">Kalp Kalbe, Yan Yana</div>
     </nav>
 
-    <!-- Giriş (The Kiss Temalı Karşılama) -->
     <header>
         <h1>Nazlı Kraliçeme</h1>
-        <p>Klimt'in altın fırçası kadar asil, yıldızların parıltısı kadar sonsuz bir aşkın günlüğü...</p>
+        <p>Zamanın ötesinde, her şeyin başladığı o narin ve eşsiz ana adanmıştır...</p>
     </header>
 
     <div class="sparkle">✦ ─── 🍒 ─── ✦</div>
 
-    <!-- Fotoğraf ve Söz Alanları -->
     <div class="album-container">
 
-        <!-- 1. ANINIZ -->
+        <!-- 1. FOTOĞRAF VE YAZI -->
         <div class="memory-card">
             <div class="photo-holder">
-                <img src="sevgili1.jpg" alt="Kraliçemle İlk Anı">
+                <img src="sevgili1.jpg" alt="Kutup Yıldızım">
             </div>
             <div class="text-holder">
-                <h3>Bir Kiraz Mevsimi</h3>
-                <p>"Dünyanın tüm narin çiçekleri solsa bile, kalbime bıraktığın o ilk günkü taze kiraz kokulu umut asla kaybolmayacak. Sen benim en güzel başlangıcımsın."</p>
+                <h3>Kutup Yıldızıma Sevgilerle...</h3>
+                <p>"Hayatımın en güzel mevsimi seninle başladı. Gözlerinin içine her baktığımda, gökyüzündeki tüm yıldızlar yerini sadece senin ışığına bırakıyor. İyi ki varsın sevgilim."</p>
             </div>
         </div>
 
-        <!-- 2. ANINIZ -->
+        <!-- 2. FOTOĞRAF VE YAZI -->
         <div class="memory-card">
             <div class="photo-holder">
-                <img src="sevgili2.jpg" alt="Kraliçemle İkinci Anı">
+                <img src="sevgili2.jpg" alt="Yıldızların Anlamı">
             </div>
             <div class="text-holder">
-                <h3>Altın Sarısı Parıltı</h3>
-                <p>"Öpücük tablosundaki o sonsuz sarılış gibi... Zamanın durduğu, yıldızların sessizce bizi izlediği o an, dünyadaki en vefalı limanım olduğunu anladım."</p>
+                <h3>İnsanların yıldızlara benzediğini anlamama sebep olan kadına...</h3>
+                <p>"Bu dünyadaki en vefalı, en huzurlu limanım sensin. Fırtınalar kopsa, her yer karanlığa bürünse bile elini tuttuğum an her şey uçup gidiyor."</p>
             </div>
         </div>
 
-        <!-- 3. ANINIZ -->
+        <!-- 3. FOTOĞRAF VE YAZI -->
         <div class="memory-card">
             <div class="photo-holder">
-                <img src="sevgili3.jpg" alt="Kraliçemle Üçüncü Anı">
+                <img src="sevgili3.jpg" alt="Yeni Başlangıçlar">
             </div>
             <div class="text-holder">
-                <h3>Yıldızların Altında</h3>
-                <p>"Senden öncesi eksik bir hikayeydi sevgilim. Hayal kırıklıklarının bittiği yerde parıldayan en parlak yıldızımsın. nazlikralicem.com seninle güzel."</p>
+                <h3>Kitabımızdaki yeni başlangıçlara aşkım...</h3>
+                <p>"Sen benim solmayan en narin çiçeğim, hayal kırıklıklarımı silip süpüren umudumsun. Bu yolculuk seninle, sadece seninle anlamlı."</p>
             </div>
         </div>
 
     </div>
 
-    <!-- Profesyonel Kapanış -->
     <footer>
-        <p>&copy; 2026 | nazlikralicem.com - Tüm Hakları Aşkımızda Saklıdır.</p>
+        <p>&copy; 2026 | Kalbimin Tek Sahibine.</p>
     </footer>
 
 </body>
