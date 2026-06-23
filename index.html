@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nazlikralicem.com | Yıldızlar Altında</title>
+    <style>
+        /* Genel Ayarlar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #1a0508; /* Derin Bordo */
+            color: #f4e8c1; /* Krem / Hafif Altın */
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* The Kiss Tablosu Arka Planı (Sabit ve Loş) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Wikimedia üzerinden güvenli, yüksek çözünürlüklü The Kiss görseli */
+            background-image: url('https://wikimedia.org');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15; /* Tablonun loş ve asil durması için opaklık */
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Gece ve Yıldız Parıltıları Efekti */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.3) 1px, transparent 30px),
+                radial-gradient(#d4af37, rgba(212,175,55,.2) 1.5px, transparent 40px);
+            background-size: 400px 400px, 550px 550px;
+            background-position: 0 0, 150px 250px;
+            z-index: -1;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Üst Menü / Navbar (Profesyonel Dokunuş) */
+        nav {
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(26, 5, 8, 0.85);
+            backdrop-filter: blur(5px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 1.4rem;
+            color: #d4af37; /* Altın Sarısı */
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-transform: lowercase;
+        }
+
+        nav .date {
+            font-size: 0.9rem;
+            color: #b38f93;
+            font-style: italic;
+        }
+
+        /* Giriş Alanı (Hero Section) */
+        header {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #d4af37;
+            max-width: 600px;
+        }
+
+        /* Fotoğraf ve Şiir Albümü */
+        .album-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px 100px 20px;
+        }
+
+        .memory-card {
+            display: flex;
+            background: rgba(43, 10, 15, 0.75); /* Kadife Bordo Kutular */
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            margin-bottom: 60px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            transition: transform 0.3s ease, border 0.3s ease;
+            backdrop-filter: blur(3px);
+        }
+
+        .memory-card:hover {
+            transform: translateY(-5px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        /* Fotoğrafların yerini bir sağ bir sol yapmak için */
+        .memory-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .photo-holder {
+            flex: 1.2;
+            min-height: 400px;
+            position: relative;
+            background: #120305;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .photo-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .memory-card:hover .photo-holder img {
+            transform: scale(1.03);
+        }
+
+        .text-holder {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-holder h3 {
+            color: #d4af37;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .text-holder p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #f4e8c1;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Süs Parıltı İkonu */
+        .sparkle {
+            text-align: center;
+            color: #d4af37;
+            font-size: 1.5rem;
+            margin: 40px 0;
+            opacity: 0.7;
+        }
+
+        /* Alt Bilgi */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(18, 3, 5, 0.9);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: #b38f93;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Mobil Uyumluluk Ekran Ayarları */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            header h1 { font-size: 2.3rem; }
+            .memory-card, .memory-card:nth-child(even) {
+                flex-direction: column;
+            }
+            .photo-holder { min-height: 300px; }
+            .text-holder { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Profesyonel Menü Barı -->
+    <nav>
+        <div class="logo">nazlikralicem.com</div>
+        <div class="date">Sonsuzluğa Atılan İmza</div>
+    </nav>
+
+    <!-- Giriş (The Kiss Temalı Karşılama) -->
+    <header>
+        <h1>Nazlı Kraliçeme</h1>
+        <p>Klimt'in altın fırçası kadar asil, yıldızların parıltısı kadar sonsuz bir aşkın günlüğü...</p>
+    </header>
+
+    <div class="sparkle">✦ ─── 🍒 ─── ✦</div>
+
+    <!-- Fotoğraf ve Söz Alanları -->
+    <div class="album-container">
+
+        <!-- 1. ANINIZ -->
+        <div class="memory-card">
+            <div class="photo-holder">
+                <img src="sevgili1.jpg" alt="Kraliçemle İlk Anı">
+            </div>
+            <div class="text-holder">
+                <h3>Bir Kiraz Mevsimi</h3>
+                <p>"Dünyanın tüm narin çiçekleri solsa bile, kalbime bıraktığın o ilk günkü taze kiraz kokulu umut asla kaybolmayacak. Sen benim en güzel başlangıcımsın."</p>
+            </div>
+        </div>
+
+        <!-- 2. ANINIZ -->
+        <div class="memory-card">
+            <div class="photo-holder">
+                <img src="sevgili2.jpg" alt="Kraliçemle İkinci Anı">
+            </div>
+            <div class="text-holder">
+                <h3>Altın Sarısı Parıltı</h3>
+                <p>"Öpücük tablosundaki o sonsuz sarılış gibi... Zamanın durduğu, yıldızların sessizce bizi izlediği o an, dünyadaki en vefalı limanım olduğunu anladım."</p>
+            </div>
+        </div>
+
+        <!-- 3. ANINIZ -->
+        <div class="memory-card">
+            <div class="photo-holder">
+                <img src="sevgili3.jpg" alt="Kraliçemle Üçüncü Anı">
+            </div>
+            <div class="text-holder">
+                <h3>Yıldızların Altında</h3>
+                <p>"Senden öncesi eksik bir hikayeydi sevgilim. Hayal kırıklıklarının bittiği yerde parıldayan en parlak yıldızımsın. nazlikralicem.com seninle güzel."</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Profesyonel Kapanış -->
+    <footer>
+        <p>&copy; 2026 | nazlikralicem.com - Tüm Hakları Aşkımızda Saklıdır.</p>
+    </footer>
+
+</body>
+</html>
